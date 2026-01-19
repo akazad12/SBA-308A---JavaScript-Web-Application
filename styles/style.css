@@ -1,0 +1,27 @@
+body,
+        html {
+            height: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+.btn {
+  background-color: #007bff; 
+  color: white;          
+  border: none;            
+  padding: 10px 20px;     
+  border-radius: 5px;    
+  font-size: 16px;          
+  cursor: pointer;       
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
+}
+input {
+  width: 300px; 
+  padding: 10px; 
+  font-size: 16px;
+  box-sizing: border-box; 
+}
