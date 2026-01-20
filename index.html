@@ -7,24 +7,45 @@
     <title>Document</title>
     <script defer src=""></script>
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link href="https://cdn.jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <!-- <script src="https://cdn.jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    
+    
+
+
 
 <body>
     <div class='container'>
         <h1>Weather Forcast</h1>
     </div>
-    <form class='search' id='search'>
+    <form class='userInput' id='userInput'>
         <input id='loc_input' type="text" name="location" placeholder='Enter your location' id="location-input">
-        <button class='btn' type='submit' aria-label='Search'>Search
+        <button class='btn' id = 'submit' type='submit' aria-label='Search'>
+
+            Search
         </button>
     </form>
     <div class='weather-results' id="weather-results">
         <h2>
             Weather in <span id="location">Location Name</span>
         </h2>
-        <div class = 'grid'>
-            <div class = 'temperature'>
-                <p class="temperatureTxt">0</p>
+        <div id = 'grid'>
+            <div id = 'temperature'>
+                <p id="temperatureTxt">0</p>
+                <p id="realFeelText">0</p>
+                <p id="percipitationText">0</p>
+                <p id="windSpeedText">0</p>
+            <!-- </div>
+             <div id = 'realFeel'>
+                <p id="realFeelText">0</p>
             </div>
+             <div id = 'percipitation'>
+                <p id="percipitationText">0</p>
+            </div>
+             <div id = 'windSpeed'>
+                <p id="windSpeedText">0</p>
+            </div> -->
+
         </div>
     </div>
 </body>

@@ -1,4 +1,9 @@
-// const userInput = document.getElementById('userInput');
+const userInput = document.getElementById('userInput');
+const temperature = document.getElementById('temperatureTxt');
+const realFeel = document.getElementById('realFeelTxt');
+const percipitation = document.getElementById('percipitationTxt');
+const windSpeed = document.getElementById('windSpeedTxt');
+const submit = document.getElementById('submit')
 
 
 
@@ -19,7 +24,6 @@ async function getLocation(location){
     }
 }
 
-// getLocation('Savannah')
 
 async function getWeather(location){
     const {lat,lon,name} = await getLocation(location);
@@ -47,7 +51,15 @@ async function getWeather(location){
     }
 
 }
+console.log(temperature)
 
 
 console.log(getWeather('New York City'))
 
+userInput.addEventListener('submit',async e=>{
+    e.preventDefault()
+    temperature.innerText = 100
+    console.log(temperature)
+
+
+})
