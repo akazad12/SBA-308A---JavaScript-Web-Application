@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer src=""></script>
+    <script defer src="/scripts/index.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- <link href="https://cdn.jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
-    <!-- <script src="https://cdn.jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-    
-    
+
+    <!-- <link href="https://cdn.jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     -->
+
 
 
 
@@ -20,7 +21,7 @@
     </div>
     <form class='userInput' id='userInput'>
         <input id='loc_input' type="text" name="location" placeholder='Enter your location' id="location-input">
-        <button class='btn' id = 'submit' type='submit' aria-label='Search'>
+        <button class='btn' id='submit' type='submit' aria-label='Search'>
 
             Search
         </button>
@@ -29,25 +30,49 @@
         <h2>
             Weather in <span id="location">Location Name</span>
         </h2>
-        <div id = 'grid'>
-            <div id = 'temperature'>
-                <p id="temperatureTxt">0</p>
-                <p id="realFeelText">0</p>
-                <p id="percipitationText">0</p>
-                <p id="windSpeedText">0</p>
-            <!-- </div>
-             <div id = 'realFeel'>
-                <p id="realFeelText">0</p>
+         <h2>
+            At time <span id="dTime">time</span>
+        </h2>
+        <div id='grid'>
+            <div id='current'>
+                <div id='temperature'>temperature
+                    <p id="temperatureText">0</p>
+                </div>
+                <div id='realFeel'>realFeel
+                    <p id="realFeelText">0</p>
+                </div>
+                <div id='precipitation'>precipitation
+                    <p id="precipitationText">0</p>
+                </div>
+                <div id='windSpeed'>windSpeed
+                    <p id="windSpeedText">0</p>
+                </div>
             </div>
-             <div id = 'percipitation'>
-                <p id="percipitationText">0</p>
+            <div id = 'daily'>
+                <div id='tempMax'>tempMax
+                    <p id="tempMaxText">0</p>
+                </div>
+                <div id='tempMin'>tempMin
+                    <p id="tempMinText">0</p>
+                </div>
+                <div id='realFeelMax'>realFeelMax
+                    <p id="realFeelMaxText">0</p>
+                </div>
+                 <div id='realFeelMin'>realFeelMin
+                    <p id="realFeelMinText">0</p>
+                </div>
+                 <div id='dwindSpeed'>dwindSpeed
+                    <p id="dwindSpeedText">0</p>
+                </div>
+                 <div id='precipProb'>precipProb
+                    <p id="precipProbText">0</p>
+                </div>
+                
             </div>
-             <div id = 'windSpeed'>
-                <p id="windSpeedText">0</p>
-            </div> -->
+
 
         </div>
     </div>
 </body>
 
-</html> 
+</html>
