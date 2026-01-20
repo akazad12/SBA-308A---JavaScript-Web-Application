@@ -16,6 +16,8 @@ const dRealFeelMin = document.getElementById('realFeelMinText')
 const dWindSpeed = document.getElementById('dwindSpeedText')
 const dPrecipProb = document.getElementById('precipProbText')
 
+const weatherResults = document.getElementById("weather-results")
+
 
 
 
@@ -45,7 +47,7 @@ async function getWeather(location) {
     url.search = new URLSearchParams({
         latitude: lat,
         longitude: lon,
-        forecast_days: 3,
+        forecast_days: 4,
         temperature_unit: 'fahrenheit',
         current: 'temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m',
         daily: 'weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_probability_max,wind_speed_10m_max',
@@ -74,6 +76,7 @@ userInput.addEventListener('submit', async e => {
     e.preventDefault()
     // temperature.textContent = current.temperature_2m
     // console.log(temperature)
+    userInput.classList.add("hidden")
     const input = searchQuery.value;
 
     data = await getWeather(input)
@@ -86,20 +89,10 @@ userInput.addEventListener('submit', async e => {
     console.log(current)
     console.log(data.daily)
     daily = data.daily
-    loco.innerText = data.name;
-    dTime.innerText = current.time;
-
-
-    dMaxTemp.innerText = daily.temperature_2m_max
-    dMinTemp.innerText = daily.temperature_2m_min
-    dRealFeelMax.innerText = daily.apparent_temperature_max
-    dRealFeelMin.innerText = daily.apparent_temperature_min
-    dWindSpeed.innerText = daily.precipitation_probability_max
-    dPrecipProb.innerText = daily.wind_speed_10m_max
-
 
 
     const dayDiv = document.getElementById('daily')
+    dayDiv.classList.add("container")
     // for (day in daily){
     console.log(Object.values(daily))
     // for (i in Object.values(daily)){
@@ -107,38 +100,50 @@ userInput.addEventListener('submit', async e => {
     // }
 
     // console.log(daily.temperature_2m_max[0])
-    const indexes = [0, 1, 2]
+    const indexes = [0, 1, 2, 3]
     const keys = ["time","weather_code","temp_daily_max", "temp_daily_min",
         "apparent_max","apparent_min", "daily_percip", "daily_wind"
     ]
-    console.log(Object.keys(daily))
-    indexes.forEach(index => {
-        let i = 0
-        const card = document.createElement('div')
+    const row = document.createElement('div')
+    // row.classList.add("row")
+    // row.classList.add("g-lg-5")
+    // row.classList.add("")
 
-        Object.values(daily).forEach(value =>{
-            if(keys[i] != "weather_code"){
-            const temp = document.createElement('p')
-            temp.innerText = keys[i] + ":" + value[index]
-            card.append(temp)}
-            i=i+1
+
+    // row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-lg-5
+    // dayDiv.append(row)
+
+    // console.log(Object.keys(daily))
+    // indexes.forEach(index => {
+    //     let i = 0
+    //     const card = document.createElement('div')
+    //     card.classList.add("col-md-3")
+    //     card.classList.add("col-sm-6")
+
+        // col-md-3 col-sm-6
+        
+        // card.classList.add("card")
+        // card.classList.add("col")
+        // card.classList.add("justify-content-center")
+        // card.classList.add("card")
+
+
+
+    /////KEEPPP
+    //     Object.values(daily).forEach(value =>{
+    //         if(keys[i] != "weather_code"){
+    //         const temp = document.createElement('p')
+    //         temp.innerText = keys[i] + ":" + value[index]
+    //         card.append(temp)}
+    //         i=i+1
             
-        })
-        // const temp_daily_max = document.createElement('p')
-        // const temp_daily_min = document.createElement('p')
-        // const apparent_max = document.createElement('p')
-        // const apparent_min = document.createElement('p')
-        // const daily_percip = document.createElement('p')
-        // const daily_wind = document.createElement('p')
+    //     })
 
-        // temp_daily_max.innerText = daily.temperature_2m_max
-        // temp_daily_min.innerText = daily.temperature_2m_min
-        // apparent_max.innerText = daily.apparent_temperature_max
-        // apparent_min.innerText = daily.apparent_temperature_min
-        // daily_percip.innerText = daily.precipitation_probability_max
-        // daily_wind.innerText = daily.wind_speed_10m_max
-        i = 0
-        dayDiv.append(card)
+    //     i = 0
+    //     row.append(card)
 
-    })
+    // })
+    // weatherResults.classList.remove("hidden")
+    // weatherResults.classList.add("active")
+    // dayDiv.append(row)
 })
