@@ -5,7 +5,7 @@ const percipitation = document.getElementById('precipitationText');
 const windSpeed = document.getElementById('windSpeedText');
 const submit = document.getElementById('submit')
 const searchQuery = document.getElementById('loc_input');
-const loco = document.getElementById('location')
+const loca = document.getElementById('location')
 const dTime = document.getElementById('dTime')
 
 
@@ -83,12 +83,15 @@ userInput.addEventListener('submit', async e => {
     current = data.current
 
     temperature.textContent = current.temperature_2m;
-    realFeel.textContent = current.apparent_temperature;
-    percipitation.innerText = current.precipitation;
-    windSpeed.textContent = current.wind_speed_10m;
+    realFeel.textContent = "Real Feel: " +current.apparent_temperature;
+    percipitation.innerText = 'Precipitation: '+current.precipitation;
+    windSpeed.textContent = 'Wind Speed: ' +current.wind_speed_10m;
     console.log(current)
     console.log(data.daily)
     daily = data.daily
+    dTime.innerText = current.time
+    loca.innerText = data.name
+
 
 
     const dayDiv = document.getElementById('daily')
@@ -105,45 +108,42 @@ userInput.addEventListener('submit', async e => {
         "apparent_max","apparent_min", "daily_percip", "daily_wind"
     ]
     const row = document.createElement('div')
-    // row.classList.add("row")
+    row.classList.add("row")
     // row.classList.add("g-lg-5")
     // row.classList.add("")
 
 
-    // row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-lg-5
+    
     // dayDiv.append(row)
 
-    // console.log(Object.keys(daily))
-    // indexes.forEach(index => {
-    //     let i = 0
-    //     const card = document.createElement('div')
-    //     card.classList.add("col-md-3")
-    //     card.classList.add("col-sm-6")
-
-        // col-md-3 col-sm-6
+   
+    indexes.forEach(index => {
+        let i = 0
+        const card = document.createElement('div')
+        card.classList.add("col-md-3")
+        card.classList.add("col-sm-6")
         
-        // card.classList.add("card")
-        // card.classList.add("col")
-        // card.classList.add("justify-content-center")
-        // card.classList.add("card")
+
+        card.classList.add("justify-content-center")
+        card.classList.add("card")
 
 
 
-    /////KEEPPP
-    //     Object.values(daily).forEach(value =>{
-    //         if(keys[i] != "weather_code"){
-    //         const temp = document.createElement('p')
-    //         temp.innerText = keys[i] + ":" + value[index]
-    //         card.append(temp)}
-    //         i=i+1
+    ///KEEPPP
+        Object.values(daily).forEach(value =>{
+            if(keys[i] != "weather_code"){
+            const temp = document.createElement('p')
+            temp.innerText = keys[i] + ":" + value[index]
+            card.append(temp)}
+            i=i+1
             
-    //     })
+        })
 
-    //     i = 0
-    //     row.append(card)
+        i = 0
+        row.append(card)
 
-    // })
-    // weatherResults.classList.remove("hidden")
-    // weatherResults.classList.add("active")
-    // dayDiv.append(row)
+    })
+    weatherResults.classList.remove("hidden")
+    weatherResults.classList.add("active")
+    dayDiv.append(row)
 })

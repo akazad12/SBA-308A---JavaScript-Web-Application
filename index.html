@@ -8,7 +8,8 @@
     <script defer src="/scripts/index.js"></script>
     <link rel="stylesheet" href="./styles/style.css">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 <body>
     <div class='container'>
@@ -21,34 +22,50 @@
             Search
         </button>
     </form>
-    <div class='weather-results wrap' id="weather-results">
-        <h2>
-            Weather in <span id="location">Location Name</span>
-        </h2>
-         <h2>
-            At time <span id="dTime">time</span>
-        </h2>
-        <div id='grid'>
-            <div id='current'>
-                <div id='temperature'>temperature
-                    <p id="temperatureText">0</p>
-                </div>
-                <div id='realFeel'>realFeel
-                    <p id="realFeelText">0</p>
-                </div>
-                <div id='precipitation'>precipitation
-                    <p id="precipitationText">0</p>
-                </div>
-                <div id='windSpeed'>windSpeed
-                    <p id="windSpeedText">0</p>
-                </div>
-            </div>
-            <div id = 'daily' class = "container-fluid">
-            </div>
+    <div class='weather-results container wrap' id="weather-results">
+        <!-- left column of current -->
+        <div id='grid' class="container-fluid">
+            <div id='current' class="row">
 
+                <div class="col-md-4 col-sm-5">
+                    <h5>
+                        <span id="location"></span>
+                    </h5>
+                    <h5>
+                        <span id="dTime"></span>
+                    </h5>
+
+
+                </div>
+                <div id='temperature' class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
+                    <div class="d-flex align-items-center column justify-content-center" >
+
+                            <p id="temperatureText" class="mainTemperature">0</p>
+                            <p style="font-size: 3.5rem;"><a id="farenheit">°F</a></p>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;font-size: 1.5rem;">
+                    <div id='realFeel'>
+                        <p id="realFeelText">0</p>
+                    </div>
+                    <div id='precipitation'>
+                        <p id="precipitationText">0</p>
+                    </div>
+                    <div id='windSpeed'>
+                        <p id="windSpeedText">0</p>
+                    </div>
+                </div>
+            </div>
+            <div id='daily' class="container-fluid">
         </div>
+
     </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 
 </body>
 

@@ -43,3 +43,8 @@ input {
   padding: 0px;
   color: white;  
 }
+.mainTemperature{
+  font-size: 7.5em; 
+  line-height: 0.7;
+  
+}
