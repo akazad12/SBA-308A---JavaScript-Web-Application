@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,24 @@
     <link rel="stylesheet" href="./styles/style.css">
 
 <body>
-    <div class = 'container'><h1>Weather App</h1></div>
-    <form>
-        <input id = 'loc_input' type="text" name="location" placeholder= 'Enter your location' id="location-input">
-        <button class = 'btn' type = 'submit' aria-label = 'Search'>Search
+    <div class='container'>
+        <h1>Weather Forcast</h1>
+    </div>
+    <form class='search' id='search'>
+        <input id='loc_input' type="text" name="location" placeholder='Enter your location' id="location-input">
+        <button class='btn' type='submit' aria-label='Search'>Search
         </button>
     </form>
+    <div class='weather-results' id="weather-results">
+        <h2>
+            Weather in <span id="location">Location Name</span>
+        </h2>
+        <div class = 'grid'>
+            <div class = 'temperature'>
+                <p class="temperatureTxt">0</p>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+
+</html> 

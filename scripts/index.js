@@ -1,5 +1,6 @@
-// const locationInput = document.getElementById('location-input');
-// const locationCoord = document.getElementById('location-coordinates');
+// const userInput = document.getElementById('userInput');
+
+
 
 async function getLocation(location){
     try {
@@ -23,25 +24,30 @@ async function getLocation(location){
 async function getWeather(location){
     const {lat,lon,name} = await getLocation(location);
     console.log(lat,lon,name)
-    const url = `https://api.open-meteo.com/v1/forecast
-    ?latitude=${lat}
-    &longitude=${lon}
-    &temperature_unit=fahrenheit
-    &current=temperature_2m,precipitation
-    &hourly = temperature_2m, apparent_temperature, precipitation_probability, precipitation,weather_code
-    `.replace(/\s+/g, "");
+    const url = new URL("https://api.open-meteo.com/v1/forecast");
+    url.search = new URLSearchParams({
+        latitude:lat,
+        longitude:lon,
+        forecast_days:3,
+        temperature_unit:'fahrenheit',
+        current:'temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m',
+        daily: 'weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_probability_max,wind_speed_10m_max',
+        timezone: 'auto'
+    });
     const response = await fetch(url);
     const data = await response.json();
 
     console.log(data.current);
-    console.log(data.hourly)
+    console.log(data.daily)
+    console.log(name)
+    return{
+        name,
+        current: data.current,
+        daily: data.daily
+    }
 
 }
-async function processData(location){
-    const finalResult = await getWeather(location);
-    console.log(finalResult);
-}
-
 
 
 console.log(getWeather('New York City'))
+
